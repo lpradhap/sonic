@@ -1,0 +1,10 @@
+
+    <div class="d-lg-none expander" (click)="toggleList()" >
+        <i class="fa expander" [ngClass]="showSideBar ? 'fa-angle-left' : 'fa-angle-right' "></i> <span *ngIf="showSideBar">Close</span>
+    </div>
+    <div class="list-panel d-none d-lg-block" [ngClass]="{'show': showSideBar}" >
+        <div *ngFor="let pathologists of dataService.pathologists" (click)="loadPathologists(pathologists)"
+            [ngClass]="{'active': dataService.activePathologistID === pathologists.id}">
+            <strong>{{pathologists.firstName}},</strong> {{pathologists.lastName}}
+        </div>
+    </div>

@@ -1,0 +1,75 @@
+.list-panel {
+    overflow: auto;
+    &.show {
+        display: block !important;
+        width: 280px;
+    }
+    div {
+        color: $primaryBlue;
+        padding: 10px;
+        border-top: solid 1px $borderGrey;
+        cursor: pointer;
+
+        &:nth-child(odd) {
+            background: $lightGrey;
+        }
+
+        &:last-child {
+            border-bottom: solid 1px $borderGrey;
+        }
+
+        &.active {
+            background: $darkBlue;
+            color: #fff;
+        }
+    }
+}
+
+.expander {
+    font-size: $baseFontSize * 3;
+    color: $darkBlue;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    span {
+        font-size: $baseFontSize * 1.5;
+        line-height: 1;
+        margin-left: 20px;
+        padding: 5px 0 0 0;
+    }
+}
+
+.mobile {
+    &.expander-on app-sidebar {
+        width: 300px;
+        .list-panel {
+            opacity: 1;
+        }
+
+    }
+    app-sidebar {
+        position: fixed;
+        left: 15px;
+        top: 15px;
+        bottom: 15px;
+        width: 70px;
+        z-index: 1;
+        background: #fff;
+        max-width: none;
+        padding: 0;
+        transition: all 0.2s;
+        overflow: hidden;
+
+        .list-panel {
+            opacity: 0;
+        }
+        .expander  {
+            padding: 0 0 0  15px;
+        }
+    }
+
+    .detail {
+        padding-left: 70px;
+    }
+}

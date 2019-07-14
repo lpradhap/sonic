@@ -1,0 +1,70 @@
+<div class="detail" *ngIf="pathologist">
+    <div class="summary-panel">
+        <div class="btn-back-to-list"><i class="fa fa-arrow-left"></i> Back to List</div>
+        <div class="row m-0">
+            <div class="col-3 col-lg-4  order-2 order-lg-1"></div>
+            <div class="col pl-md-4 pl-lg-0 order-1 order-lg-2">
+                <div class="name">{{pathologist.firstName}} {{pathologist.lastName}}</div>
+            </div>
+        </div>
+        <div class="row  m-0  pl-md-4 pl-lg-0 contact-panel">
+            <div class="col-3 col-lg-4 order-2 order-lg-1">
+                <div class="image">
+                    <img [src]="pathologist.image" />
+                </div>
+            </div>
+            <div class="col  order-1 order-lg-2">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-lg-4 p-0 phone"><i class="fa fa-phone"></i> {{pathologist.contact.phone}}</div>
+                    <div class="col email "><i class="fa fa-envelope"></i> {{pathologist.contact.email}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-panel">
+        <div class="qualification content-item row">
+            <div class="col-12 col-lg-4"></div>
+            <div class="col">
+                {{pathologist.qualifications}}
+            </div>
+        </div>
+        <div class="specialty content-item row">
+            <div class="col-12 col-lg-4 title">Specialty</div>
+            <div class="col">
+                {{pathologist.specialty}}
+            </div>
+
+        </div>
+        <div class="row content-item">
+            <div class="col-12 col-lg-4 title">Special interests</div>
+            <div class="col">
+                {{pathologist.interest}}
+            </div>
+
+        </div>
+        <div class="row content-item">
+            <div class="col-12 col-lg-4 title">Biography</div>
+            <div class="col">
+                {{pathologist.biography}}
+            </div>
+        </div>
+    </div>
+    <div class="navigation row">
+        <div class="col-6 p-0 prev">
+            <span class="hyp" *ngIf="dataService.getPrevPathologist()"
+                (click)="loadPathologists(dataService.getPrevPathologist())">
+                <i class="fa fa-angle-left"></i> {{dataService.getPrevPathologist().lastName}}
+                <strong>{{dataService.getPrevPathologist().firstName}}</strong>
+            </span>
+        </div>
+        <div class="col-6 p-0 next text-right">
+            <span class="hyp" *ngIf="dataService.getNextPathologist()"
+                (click)="loadPathologists(dataService.getNextPathologist())">
+                {{dataService.getNextPathologist().lastName}}
+                <strong>{{dataService.getNextPathologist().firstName}} </strong><i class="fa fa-angle-right"></i>
+            </span>
+        </div>
+
+
+    </div>
+</div>
